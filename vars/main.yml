@@ -1,0 +1,20 @@
+---
+
+mariadb_version: "" # Supported version: 10.5, 10.6, 10.10, 10.11, 11.0, 11.1, 11.2, 11.3
+mariadb_repo_url: "deb https://deb.mariadb.org/{{ mariadb_version }}/ubuntu focal main"
+mariadb_pgp_key_url: "https://mariadb.org/mariadb_release_signing_key.pgp"
+
+set_mariadb_root_password: false
+mariadb_root_password: ""
+
+mariadb_replication_user: "replication"
+mariadb_replication_password: "securepassword"
+#mariadb_replication_host: "%"
+
+create_user: false
+#mariadb_user: ""
+#mariadb_password: ""
+#mariadb_host: "%"
+
+total_hosts: "{{ groups['mariadb_cluster'] | length }}"
+cluster_hostnames: "{{ groups['mariadb_cluster'] | map('extract',hostvars,'ansible_hostname') | list }}"

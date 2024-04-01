@@ -1,0 +1,18 @@
+# MariaDB nodes
+[master]
+node-1  ansible_host=ip_node-1
+
+[slave]
+node-2  ansible_host=ip_node-2
+node-3  ansible_host=ip_node-3
+
+[mariadb_cluster:children]
+master
+slave
+
+# Connection settings
+[all:vars]
+ansible_connection='ssh'
+ansible_ssh_port='22'
+ansible_user='root'
+ansible_ssh_private_key_file='/root/.ssh/id_rsa'
