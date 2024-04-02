@@ -121,7 +121,7 @@
         password: "{{ mariadb_root_password }}"
         login_user: root
         login_unix_socket: /var/run/mysqld/mysqld.sock
-      no_log: yes
+      no_log: true
       when:
         - set_mariadb_root_password
         - not mariadb_secured.stat.exists
@@ -134,7 +134,7 @@
         login_user: root
         login_password: "{{ mariadb_root_password }}"
         login_unix_socket: /var/run/mysqld/mysqld.sock
-      no_log: yes
+      no_log: true
       when: not mariadb_secured.stat.exists
       
     - name: Remove test database
@@ -144,7 +144,7 @@
         login_user: root
         login_password: "{{ mariadb_root_password }}"
         login_unix_socket: /var/run/mysqld/mysqld.sock
-      no_log: yes
+      no_log: true
       when: not mariadb_secured.stat.exists
 
     - name: create mariadb_secured
@@ -184,6 +184,7 @@
         login_user: root
         login_password: "{{ mariadb_root_password }}"
         login_unix_socket: /run/mysqld/mysqld.sock
+      no_log: true
 
     - name: Create reguler user
       mysql_user:
@@ -196,6 +197,7 @@
         login_password: "{{ mariadb_root_password }}"
         login_unix_socket: /run/mysqld/mysqld.sock
       when: create_user
+      no_log: true
 
 - name: deploy_cluster.yml | prepare replica node
   hosts: slave
