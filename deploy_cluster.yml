@@ -253,16 +253,21 @@
         login_user: root
         login_password: "{{ mariadb_root_password }}"
         login_unix_socket: /run/mysqld/mysqld.sock
-#      delegate_to: "{{ groups['master'] }}"
       register: __mariadb_repl_master_status
       when: is_master
+
+    - name: "Add master status to dummy host"
+      add_host:
+        name:   "MASTER_STAT_HOLDER"
+        file:  "{{ __mariadb_repl_master_status.File }}"
+        position: "{{ __mariadb_repl_master_status.Position }}"
 
     - name: Configure replication settings
       mysql_replication:
         mode: changemaster
         master_host: "{{ groups['master'][0] }}"
-        master_log_file: "{{ __mariadb_repl_master_status.File }}"
-        master_log_pos: "{{ __mariadb_repl_master_status.Position }}"
+        master_log_file: "{{ hostvars.MASTER_STAT_HOLDER.file }}"
+        master_log_pos: "{{ hostvars.MASTER_STAT_HOLDER.position }}"
         master_user: "{{ mariadb_replication_user }}"
         master_password: "{{ mariadb_replication_password }}"
         login_unix_socket: /run/mysqld/mysqld.sock
