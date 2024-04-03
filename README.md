@@ -2,6 +2,8 @@
 [![GitHub license](https://img.shields.io/github/license/vickyphang/mariadb-replication-setup)](https://github.com/vickyphang/mariadb-replication-setup/blob/master/LICENSE)
 ![GitHub stars](https://img.shields.io/github/stars/vickyphang/mariadb-replication-setup)
 
+<p align="center"> <img src="images/logo.png"> </p>
+
 The `mariadb-replication-setup` project is designed to deploy `MariaDB master-slave replication clusters` on `Ubuntu 20.04`. This solution is tailored for use on dedicated physical servers, virtual machines, and within both on-premises and cloud-based infrastructures.
 
 This project currently only facilitates the `creation` of new clusters.
