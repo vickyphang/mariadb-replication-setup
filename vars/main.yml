@@ -1,7 +1,7 @@
 ---
 # Specify mariadb version
 mariadb_version: "" # Supported version: 10.5, 10.6, 10.11, 11.0, 11.1, 11.2, 11.3, 11.4
-mariadb_repo_url: "deb https://deb.mariadb.org/{{ mariadb_version }}/ubuntu focal main"
+mariadb_repo_url: "deb https://deb.mariadb.org/{{ mariadb_version }}/ubuntu {{ ansible_distribution_release }} main"
 mariadb_pgp_key_url: "https://mariadb.org/mariadb_release_signing_key.pgp"
 
 # Optional: Set password for root user in mariadb (Default: false)
