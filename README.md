@@ -4,7 +4,7 @@
 
 <p align="center"> <img src="images/logo.png"> </p>
 
-The `mariadb-replication-setup` project is designed to deploy `MariaDB master-slave replication clusters` on `Ubuntu 20.04`. This solution is tailored for use on dedicated physical servers, virtual machines, and within both on-premises and cloud-based infrastructures.
+The `mariadb-replication-setup` project is designed to deploy `MariaDB master-slave replication clusters` on `Ubuntu` (both `focal` and `jammy`). This solution is tailored for use on dedicated physical servers, virtual machines, and within both on-premises and cloud-based infrastructures.
 
 This project currently only facilitates the `creation` of new clusters.
 
