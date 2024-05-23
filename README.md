@@ -30,6 +30,7 @@ git clone https://github.com/vickyphang/mariadb-replication-setup
 ```
 
 3. Edit the inventory file
+
 Specify hostname, IP addresses (`ansible_host`) and connection settings (`ansible_user`, `ansible_ssh_pass` or `ansible_ssh_private_key_file` for your environment
 ```bash
 nano inventory
